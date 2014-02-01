@@ -5,9 +5,9 @@ class CreateProducts < ActiveRecord::Migration
     t.string "tier", :string => 50 
     t.timestamps
     end
+  end
 
     def down
-    	drop_table :products
-    end
+    drop_table :products
   end
 end

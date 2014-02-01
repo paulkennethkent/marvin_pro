@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130220110) do
+ActiveRecord::Schema.define(version: 20140130222922) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      limit: 25
@@ -25,5 +25,40 @@ ActiveRecord::Schema.define(version: 20140130220110) do
   end
 
   add_index "admin_users", ["username"], name: "index_admin_users_on_username", using: :btree
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "email",      default: "", null: false
+    t.integer  "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "frameworks", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.string   "tier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.string   "postcode"
+    t.integer  "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.string   "status",     default: "o", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
