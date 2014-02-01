@@ -56,9 +56,12 @@ ActiveRecord::Schema.define(version: 20140130222922) do
   end
 
   create_table "tickets", force: true do |t|
+    t.integer  "product_id"
     t.string   "status",     default: "o", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tickets", ["product_id"], name: "index_tickets_on_product_id", using: :btree
 
 end
