@@ -1,0 +1,23 @@
+<div class="subjects index">
+	<h2>Products</h2>
+
+ <%= link_to("Add New Product", '#', :class => 'action new')%>
+
+ 	<table class="listing" summary="Product list">
+ 		<tr class="header">
+ 			<th>Product</th>
+ 			<th>Tier</th>
+ 		</tr>
+ 		<% @products.each do |product| %>
+ 		<tr>
+ 			<td><%= product.name %></td>
+ 			<td><%= product.tier %></td>
+ 			<td class="actions">
+ 				<%= link_to("Show", '#', :class => 'action show') %>
+ 				<%= link_to("Edit", '#', :class => 'action edit') %>
+ 				<%= link_to("Delete", '#', :class => 'action delete') %>
+ 			</td>
+ 		</tr>
+ 		<% end %>
+ 	</table>
+</div>
