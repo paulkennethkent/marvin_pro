@@ -1,23 +1,35 @@
-<div class="subjects index">
-	<h2>Products</h2>
-
- <%= link_to("Add New Product", '#', :class => 'action new')%>
-
- 	<table class="listing" summary="Product list">
- 		<tr class="header">
- 			<th>Product</th>
- 			<th>Tier</th>
- 		</tr>
- 		<% @products.each do |product| %>
- 		<tr>
- 			<td><%= product.name %></td>
- 			<td><%= product.tier %></td>
- 			<td class="actions">
- 				<%= link_to("Show", '#', :class => 'action show') %>
- 				<%= link_to("Edit", '#', :class => 'action edit') %>
- 				<%= link_to("Delete", '#', :class => 'action delete') %>
- 			</td>
- 		</tr>
- 		<% end %>
- 	</table>
+<%- model_class = Product -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            :class => 'btn btn-primary' %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:tier) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.tier %></td>
+        <td><%=l product.created_at %></td>
+        <td>
+          <%= link_to("Show", {:action => 'show', :id => product.id}, :class => 'btn btn-mini') %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
