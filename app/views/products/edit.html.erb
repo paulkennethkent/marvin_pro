@@ -1,5 +1,26 @@
-<%- model_class = Product -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="subjects update">
+  <h2>Update Subjects</h2>
+
+  <%= form_for(:product, :url => {:action => 'update', :id => @product.id}) do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :tier, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tier, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+
 </div>
-<%= render :partial => 'form' %>
