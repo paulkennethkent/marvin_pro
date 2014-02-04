@@ -1,2 +1,18 @@
-<h1>Products#delete</h1>
-<p>Find me in app/views/products/delete.html.erb</p>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="subjects delete">
+	<h2>Delete Products</h2>
+
+	<%= form_for(:product, :url => {:action => 'destroy', :id => @product.id}) do |f| %>
+
+	<p>Are you sure you want to permanently delete this subject?</p>
+		<dl class="dl-horizontal">
+			  <dt><p class="reference-name"><%= @product.name %></p></dt>
+			  <dd><%= @product.tier %></dd>
+		</dl>
+		<div class="form-actions">
+    <%= f.button nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+    	</div>
+	<% end %>
+</div>

@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
     # save the object
     if @product.save
       # if save succeeds, redirect to the index action
+      flash[:notice] = "Product created successfuly."
       redirect_to(:action => 'index')
     else
       # if save fails, redisplay the form so user can fix prolbmes 
@@ -35,6 +36,7 @@ class ProductsController < ApplicationController
      #update the object
     if @product.update_attributes(product_params)
      #if save succeeds, redirect to the index action
+      flash[:notice] = "Product updated successfuly."
       redirect_to(:action => 'show', :id => @product.id)
     else
       # if save fails, redisplay the form so user can fix prolbmes 
@@ -43,6 +45,13 @@ class ProductsController < ApplicationController
   end
 
   def delete
+     @product = Product.find(params[:id])
+  end
+
+  def destroy
+    product = Product.find(params[:id]).destroy
+    flash[:error] = "'#{product.name}' delted successfully."
+    redirect_to(:action => 'index')
   end
 
   private
