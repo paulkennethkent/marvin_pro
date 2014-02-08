@@ -1,2 +1,38 @@
-<h1>Schools#index</h1>
-<p>Find me in app/views/schools/index.html.erb</p>
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+  </div>
+<%end%>
+
+<%- model_class = School -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<%= link_to("Add New School", {:action => 'new'}, :class => 'btn btn-mini btn-success') %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:postcode) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr>
+        <td><%= link_to school.id %></td>
+        <td><%= school.name %></td>
+        <td><%= school.postcode %></td>
+        <td><%= school.phone %></td>
+        <td><%=l school.created_at %></td>
+        <td>
+          <%= link_to("Show", {:action => 'show', :id => school.id}, :class => 'btn btn-mini') %>
+          <%= link_to("Edit", {:action => 'edit', :id => school.id}, :class => 'btn btn-mini') %>
+          <%= link_to("Delete", {:action => 'delete', :id => school.id}, :class => 'btn btn-mini btn-danger') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

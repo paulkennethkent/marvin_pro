@@ -1,2 +1,32 @@
-<h1>Schools#new</h1>
-<p>Find me in app/views/schools/new.html.erb</p>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="school new">
+  <h2>Create School</h2>
+
+  <%= form_for(:school, :url => {:action => 'create'}) do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :postcode, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :postcode, :class => 'text_field' %>
+    </div>
+  </div>
+   <div class="control-group">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+
+</div>

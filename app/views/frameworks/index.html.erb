@@ -1,2 +1,34 @@
-<h1>Frameworks#index</h1>
-<p>Find me in app/views/frameworks/index.html.erb</p>
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+  </div>
+<%end%>
+
+<%- model_class = Framework -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<%= link_to("Add New Framework", {:action => 'new'}, :class => 'btn btn-mini btn-success') %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @frameworks.each do |framework| %>
+      <tr>
+        <td><%= link_to framework.id %></td>
+        <td><%= framework.name %></td>
+        <td><%=l framework.created_at %></td>
+        <td>
+          <%= link_to("Show", {:action => 'show', :id => framework.id}, :class => 'btn btn-mini') %>
+          <%= link_to("Edit", {:action => 'edit', :id => framework.id}, :class => 'btn btn-mini') %>
+          <%= link_to("Delete", {:action => 'delete', :id => framework.id}, :class => 'btn btn-mini btn-danger') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
