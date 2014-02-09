@@ -1,2 +1,19 @@
-<h1>Tickets#edit</h1>
-<p>Find me in app/views/tickets/edit.html.erb</p>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="schools update">
+  <h2>Update Schools</h2>
+
+  <%= form_for(:ticket, :url => {:action => 'update', :id => @ticket.id}) do |f| %>
+  <div class="control-group">
+    <%= f.label :id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+
+</div>
