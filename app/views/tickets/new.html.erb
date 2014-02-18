@@ -1,7 +1,7 @@
 <%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
 
 <div class="ticket new">
-  <h2>Create School</h2>
+  <h2>Create Ticket</h2>
 
   <%= form_for(:ticket, :url => {:action => 'create'}) do |f| %>
   <div class="control-group">
@@ -21,11 +21,11 @@
     <div class="controls">
       <%= f.text_field :admin_users_id, :class => 'text_field' %>
   </div>
+</div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
   </div>
 <% end %>
-
 </div>

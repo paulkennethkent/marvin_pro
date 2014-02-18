@@ -21,7 +21,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.id %></td>
+        <td><%= product.id %></td>
         <td><%= product.name %></td>
         <td><%= product.tier %></td>
         <td><%=l product.created_at %></td>

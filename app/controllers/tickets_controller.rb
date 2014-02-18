@@ -49,7 +49,7 @@ class TicketsController < ApplicationController
 
   def destroy
     ticket = Ticket.find(params[:id]).destroy
-    flash[:error] = "'#{school.name}' delted successfully."
+    flash[:error] = "'#{ticket.id}' delted successfully."
     redirect_to(:action => 'index')
   end
 
