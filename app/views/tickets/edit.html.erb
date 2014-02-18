@@ -1,7 +1,7 @@
 <%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
 
 <div class="schools update">
-  <h2>Update Schools</h2>
+  <h2>Update Ticket</h2>
 
   <%= form_for(:ticket, :url => {:action => 'update', :id => @ticket.id}) do |f| %>
   <div class="control-group">

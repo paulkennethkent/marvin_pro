@@ -1,5 +1,5 @@
 <div class="school delete">
-	<h2>Delete Products</h2>
+	<h2>Delete School</h2>
 
 	<%= form_for(:school, :url => {:action => 'destroy', :id => @school.id}) do |f| %>
 
@@ -9,7 +9,7 @@
 			  <dd><%= @school.postcode %></dd>
 		</dl>
 		<div class="form-actions">
-  		<%= submit_tag ("Delete Product"), :class => 'btn btn-danger' %>
+  		<%= submit_tag ("Delete School"), :class => 'btn btn-danger' %>
   		<%= link_to("Cancel", {:action => 'index'}, :class => 'back-link')%>
     	</div>
 	<% end %>
