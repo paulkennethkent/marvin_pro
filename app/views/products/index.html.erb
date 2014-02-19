@@ -1,8 +1,4 @@
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-  </div>
-<%end%>
-
+<% @page_title = "Products" %>
 <%- model_class = Product -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>

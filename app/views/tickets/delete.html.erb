@@ -1,3 +1,4 @@
+<% @page_title = "Tickets - Delete" %>
 <div class="subjects delete">
 	<h2>Delete Ticket</h2>
 
@@ -11,6 +12,8 @@
   <dd><%= @ticket.customer_id %></dd>
   <dt><strong>Product ID:</strong></dt>
   <dd><%= @ticket.product_id %></dd>
+   <dt><strong>Status</dt>
+  <dd><%= @ticket.status %></dd>
   <dt><strong>Admin User:</strong></dt>
   <dd><%= @ticket.admin_users_id %></dd>
 </dl>

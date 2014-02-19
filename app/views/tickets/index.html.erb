@@ -1,3 +1,4 @@
+<% @page_title = "Tickets" %>
 <%- model_class = Ticket -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -8,6 +9,7 @@
     <tr>
       <th><%= model_class.human_attribute_name('Ticket Number') %></th>
       <th><%= model_class.human_attribute_name(:product_id) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
        <th><%= model_class.human_attribute_name(:customer_id) %></th>
        <th><%= model_class.human_attribute_name(:admin_users_id) %></th>
         <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -19,6 +21,7 @@
       <tr>
         <td><%= link_to ticket.id %></td>
         <td><%= ticket.product_id %></td>
+        <td><%= ticket.status %></td>
         <td><%= ticket.customer_id %></td>
         <td><%= ticket.admin_users_id %></td>
         <td><%= l ticket.created_at %></td>
