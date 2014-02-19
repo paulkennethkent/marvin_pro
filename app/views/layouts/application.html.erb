@@ -38,7 +38,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -49,9 +49,10 @@
           <a class="brand" href="#">MarvinPro</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Tickets +", "index"  %></li>
-              <li><%= link_to "Products", "/path2"  %></li>
-              <li><%= link_to "Frameworks", "/path3"  %></li>
+              <li><%= link_to "Tickets +", "/tickets"  %></li>
+              <li><%= link_to "Products", "/products"  %></li>
+              <li><%= link_to "Frameworks", "/frameworks"  %></li>
+              <li><%= link_to "Schools", "/schools"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -62,7 +63,19 @@
         <div class="row">
           <div class="span9">
             <%= bootstrap_flash %>
+            <% if !flash[:notice].blank? %>
+              <div class="notice">
+              </div>
+            <%end%>
+
+            <% if !flash[:error].blank? %>
+              <div class="notice">
+              </div>
+            <%end%>
+
+            <!-- before yield -->
             <%= yield %>
+            <!-- after yield -->
           </div>
           <div class="span3">
             <div class="well sidebar-nav">

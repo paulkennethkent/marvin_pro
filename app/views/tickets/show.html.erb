@@ -1,14 +1,3 @@
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-  </div>
-<%end%>
-
-<% if !flash[:error].blank? %>
-  <div class="notice">
-  </div>
-<%end%>
-
-
 <%- model_class = Ticket -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>

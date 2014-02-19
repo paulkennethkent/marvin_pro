@@ -1,7 +1,7 @@
 MarvinPro::Application.routes.draw do
   
 
-  root "demo#index"
+  root "tickets#index"
   
   #get "demo/index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
