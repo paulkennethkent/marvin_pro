@@ -3,33 +3,10 @@
 
 <div class="schools update">
   <h2>Update Ticket</h2>
-
-  <%= form_for(:ticket, :url => {:action => 'update', :id => @ticket.id}) do |f| %>
-  <div class="control-group">
-    <%= f.label :product_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :product_id, :class => 'text_field' %>
-    </div>
-  </div>
-   <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :status, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :customer_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :customer_id, :class => 'text_field' %>
-    </div>
-  </div>
-   <div class="control-group">
-    <%= f.label :admin_users_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :admin_users_id, :class => 'text_field' %>
-    </div>
-  </div>
-
+   <%= form_for(:ticket, :url => {:action => 'update', :id => @ticket.id}) do |f| %>
+  
+        <%= render(:partial => "form", :locals => {:f => f}) %> 
+  
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
