@@ -1,9 +1,12 @@
 <% @page_title = "Tickets" %>
 <%- model_class = Ticket -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
+<div class="page-header">  
+
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> <%= link_to("Add New Ticket", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+
 </div>
-<%= link_to("Add New Ticket", {:action => 'new'}, :class => 'btn btn-mini btn-success') %>
+ 
 <table class="table table-striped">
   <thead>
     <tr>
@@ -19,7 +22,7 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= link_to ticket.id %></td>
+        <td>#<%= link_to ticket.id %></td>
         <td><%= ticket.product_id %></td>
         <td><%= status_tag(ticket.status) %></td>
         <td><%= ticket.customer_id %></td>
