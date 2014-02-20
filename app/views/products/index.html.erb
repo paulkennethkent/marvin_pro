@@ -4,6 +4,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <%= link_to("Add New Product", {:action => 'new'}, :class => 'btn btn-mini btn-success') %>
+<div><%= pluralize(@products.size, 'product') %> found</div>
 <table class="table table-striped">
   <thead>
     <tr>

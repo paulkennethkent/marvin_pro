@@ -21,7 +21,7 @@
       <tr>
         <td><%= link_to ticket.id %></td>
         <td><%= ticket.product_id %></td>
-        <td><%= ticket.status %></td>
+        <td><%= status_tag(ticket.status) %></td>
         <td><%= ticket.customer_id %></td>
         <td><%= ticket.admin_users_id %></td>
         <td><%= l ticket.created_at %></td>
