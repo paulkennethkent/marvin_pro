@@ -8,7 +8,7 @@
   <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
   <dd><%= @ticket.id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @ticket.status %></dd>
+  <dd><%= status_tag(@ticket.status) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:customer_id) %>:</strong></dt>
   <dd><%= @ticket.customer_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:product_id) %>:</strong></dt>
