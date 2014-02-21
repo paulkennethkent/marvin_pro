@@ -1,9 +1,8 @@
 <% @page_title = "Schools" %>
 <%- model_class = School -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New School", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
 </div>
-<%= link_to("Add New School", {:action => 'new'}, :class => 'btn btn-mini btn-success') %>
 <table class="table table-striped">
   <thead>
     <tr>

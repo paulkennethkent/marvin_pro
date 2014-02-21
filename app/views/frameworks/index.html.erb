@@ -1,9 +1,8 @@
 <% @page_title = "Frameworks" %>
 <%- model_class = Framework -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New Frameworks", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
 </div>
-<%= link_to("Add New Framework", {:action => 'new'}, :class => 'btn btn-mini btn-success') %>
 <table class="table table-striped">
   <thead>
     <tr>
