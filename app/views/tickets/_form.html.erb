@@ -1,7 +1,7 @@
 <div class="control-group">
   <%= f.label :product_id, :class => 'control-label' %>
   <div class="controls">
-    <%= f.text_field :product_id, :class => 'text_field' %>
+    <%= f.select(:product_id, @products.map {|p| [p.name, p.id]})  %>
   </div>
 </div>
 <div class="control-group">

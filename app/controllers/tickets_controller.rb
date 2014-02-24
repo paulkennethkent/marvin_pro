@@ -9,6 +9,9 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    #@product_count = Product.count
+    @products = Product.all 
+    
   end
 
   def create
@@ -21,12 +24,16 @@ class TicketsController < ApplicationController
       redirect_to(:action => 'index')
     else
       # if save fails, redisplay the form so user can fix prolbmes 
+      #@product_count = Product.count 
+      @products = Product.all 
       render('new')
     end
   end 
  
   def edit
     @ticket = Ticket.find(params[:id])
+    #@product_count = Product.count 
+    @products = Product.all 
   end
 
   def update
@@ -39,6 +46,8 @@ class TicketsController < ApplicationController
       redirect_to(:action => 'show', :id => @ticket.id)
     else
       # if save fails, redisplay the form so user can fix prolbmes 
+      #@product_count = Product.count 
+       @products = Product.all 
       render('edit')
     end
   end
