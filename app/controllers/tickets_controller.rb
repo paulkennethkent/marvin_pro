@@ -10,7 +10,8 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     #@product_count = Product.count
-    @products = Product.all 
+    @products = Product.all
+    @schools = School.all 
     
   end
 
@@ -26,6 +27,7 @@ class TicketsController < ApplicationController
       # if save fails, redisplay the form so user can fix prolbmes 
       #@product_count = Product.count 
       @products = Product.all 
+      @schools = School.all 
       render('new')
     end
   end 
@@ -33,6 +35,7 @@ class TicketsController < ApplicationController
   def edit
     @ticket = Ticket.find(params[:id])
     #@product_count = Product.count 
+    @schools = School.all 
     @products = Product.all 
   end
 
@@ -48,6 +51,7 @@ class TicketsController < ApplicationController
       # if save fails, redisplay the form so user can fix prolbmes 
       #@product_count = Product.count 
        @products = Product.all 
+       @schools = School.all 
       render('edit')
     end
   end

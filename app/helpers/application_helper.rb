@@ -8,9 +8,9 @@ module ApplicationHelper
      elsif string == 'Paused'
        content_tag(:span, "P" ,:class => 'badge badge-warning')
        
-      else 
+     else 
         content_tag(:span, "C", :class => 'badge badge-important')
-      end
+     end
   end
   
 end

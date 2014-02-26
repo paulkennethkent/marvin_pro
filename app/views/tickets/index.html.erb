@@ -27,7 +27,7 @@
         <td><%= ticket.product.name if ticket.product  %></td>
         <td><%= status_tag(ticket.status) %></td>
         <td><%= ticket.customer_id %></td>
-        <td><%= ticket.school_id %></td>
+        <td><%= ticket.school.name if ticket.school %></td>
         <td><%= ticket.admin_users_id %></td>
         <td><%= l ticket.created_at %></td>
         <td>
