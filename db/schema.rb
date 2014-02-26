@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130222922) do
+ActiveRecord::Schema.define(version: 20140226111940) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      limit: 25
@@ -62,10 +62,12 @@ ActiveRecord::Schema.define(version: 20140130222922) do
     t.string   "status",         default: "o", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
   end
 
   add_index "tickets", ["admin_users_id"], name: "index_tickets_on_admin_users_id", using: :btree
   add_index "tickets", ["customer_id"], name: "index_tickets_on_customer_id", using: :btree
   add_index "tickets", ["product_id"], name: "index_tickets_on_product_id", using: :btree
+  add_index "tickets", ["school_id"], name: "index_tickets_on_school_id", using: :btree
 
 end

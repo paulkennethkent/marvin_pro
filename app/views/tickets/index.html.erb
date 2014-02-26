@@ -14,6 +14,7 @@
       <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
        <th><%= model_class.human_attribute_name(:customer_id) %></th>
+      <th><%= model_class.human_attribute_name(:school_id) %></th>
        <th><%= model_class.human_attribute_name(:admin_users_id) %></th>
         <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -26,6 +27,7 @@
         <td><%= ticket.product.name if ticket.product  %></td>
         <td><%= status_tag(ticket.status) %></td>
         <td><%= ticket.customer_id %></td>
+        <td><%= ticket.school_id %></td>
         <td><%= ticket.admin_users_id %></td>
         <td><%= l ticket.created_at %></td>
         <td>
