@@ -1,6 +1,5 @@
 MarvinPro::Application.routes.draw do
   
-
   root "tickets#index"
   
   #get "demo/index"
