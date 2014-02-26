@@ -1,2 +1,17 @@
-<h1>Customers#new</h1>
-<p>Find me in app/views/customers/new.html.erb</p>
+<% @page_title = "Customers - New" %>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="customer new">
+  <h2>Create School</h2>
+
+  <%= form_for(:customer, :url => {:action => 'create'}) do |f| %>
+    
+    <%= render(:partial => "form", :locals => {:f => f}) %> 
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+
+</div>
