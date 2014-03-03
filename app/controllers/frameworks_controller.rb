@@ -8,7 +8,7 @@ class FrameworksController < ApplicationController
   end
 
   def new
-    @framework = Framework.new({:name => "Default"})
+    @framework = Framework.new
   end
 
   def create

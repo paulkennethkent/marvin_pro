@@ -8,7 +8,7 @@ class SchoolsController < ApplicationController
   end
 
   def new
-    @school = School.new({:name => "Default"})
+    @school = School.new
   end
 
   def create

@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
   end
 
   def new
-    @customer = Customer.new({:name => "Default"})
+    @customer = Customer.new
   end
 
   def create

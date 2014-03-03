@@ -8,16 +8,8 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+
 development:
-  host: 127.0.0.1
-  adapter: mysql2
-  encoding: utf8
-  database: marvin_pro_development
-  pool: 5
-  username: marvin_pro
-  password: secretpassword
-  
-#development:
   adapter: mysql2
   encoding: utf8
   database: marvin_pro_development
@@ -25,6 +17,18 @@ development:
   username: marvin_pro
   password: secretpassword
   socket: /tmp/mysql.sock
+
+
+#development:
+  host: 127.0.0.1
+  adapter: mysql2
+  encoding: utf8
+  database: marvin_pro_development
+  pool: 5
+  username: marvin_pro
+  password: secretpassword
+
+
 
 
 # Warning: The database defined as "test" will be erased and

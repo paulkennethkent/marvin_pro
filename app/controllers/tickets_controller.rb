@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
     #@product_count = Product.count
     @products = Product.all
     @schools = School.all 
+    @customers = Customer.all 
     
   end
 
@@ -28,6 +29,7 @@ class TicketsController < ApplicationController
       #@product_count = Product.count 
       @products = Product.all 
       @schools = School.all 
+      @customers = Customer.all 
       render('new')
     end
   end 
@@ -37,6 +39,7 @@ class TicketsController < ApplicationController
     #@product_count = Product.count 
     @schools = School.all 
     @products = Product.all 
+    @customers = Customer.all 
   end
 
   def update
@@ -52,6 +55,7 @@ class TicketsController < ApplicationController
       #@product_count = Product.count 
        @products = Product.all 
        @schools = School.all 
+       @customers = Customer.all 
       render('edit')
     end
   end

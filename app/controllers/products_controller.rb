@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new({:name => "Default"})
+    @product = Product.new
   end
 
   def create

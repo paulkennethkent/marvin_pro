@@ -11,9 +11,9 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name('Ticket Number') %></th>
-      <th><%= model_class.human_attribute_name(:product_id) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
+       <th><%= model_class.human_attribute_name(:status) %></th>
        <th><%= model_class.human_attribute_name(:customer_id) %></th>
+      <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:school_id) %></th>
        <th><%= model_class.human_attribute_name(:admin_users_id) %></th>
         <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -24,9 +24,9 @@
     <% @tickets.each do |ticket| %>
       <tr>
         <td>#<%=ticket.id %></td>
-        <td><%= ticket.product.name if ticket.product  %></td>
         <td><%= status_tag(ticket.status) %></td>
-        <td><%= ticket.customer_id %></td>
+         <td><%= ticket.customer.name if ticket.customer %></td>
+        <td><%= ticket.product.name if ticket.product  %></td>
         <td><%= ticket.school.name if ticket.school %></td>
         <td><%= ticket.admin_users_id %></td>
         <td><%= l ticket.created_at %></td>
