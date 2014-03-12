@@ -1,0 +1,11 @@
+<% if object && object.errors.size > 0 %> 
+	<div class="alert alert-error">
+	<p><%= pluralize(object.errors.size, "error")%> prohibited this record from being saved
+		There were problems with the following fields:</p>
+		<ul>
+			<% object.errors.full_messages.each do |msg| %>
+      <li><strong><%= msg %> </strong> </li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

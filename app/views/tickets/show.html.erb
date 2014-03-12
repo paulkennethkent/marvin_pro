@@ -9,8 +9,12 @@
   <dd><%= @ticket.id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= status_tag(@ticket.status) %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customer_id) %>:</strong></dt>
-  <dd><%= @ticket.customer_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @ticket.customer.name if @ticket.customer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @ticket.customer.email if @ticket.customer%></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @ticket.customer.phone if @ticket.customer%></dd>
   <dt><strong><%= model_class.human_attribute_name(:school_id) %>:</strong></dt>
   <dd><%= @ticket.school.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:product_id) %>:</strong></dt>
