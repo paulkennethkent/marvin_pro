@@ -17,4 +17,17 @@ module ApplicationHelper
      end
   end
   
+     def status_tag2(string)
+     
+     if string == 'Open' 
+       tag("tr class='success'", nil, true)
+    
+     elsif string == 'Paused'
+       tag("tr class='warning'", nil, true)
+       
+     else 
+       tag('tr class="error"', nil, true)
+     end
+  end
+  
 end

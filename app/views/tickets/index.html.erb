@@ -22,7 +22,8 @@
   </thead>
   <tbody>
     <% @tickets.each do |ticket| %>
-      <tr>
+      
+        <%= status_tag2(ticket.status) %>
         <td>#<%=ticket.id %></td>
         <td><%= status_tag(ticket.status) %></td>
          <td><%= ticket.customer.name if ticket.customer %></td>
