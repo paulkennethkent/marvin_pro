@@ -5,5 +5,5 @@ class Ticket < ActiveRecord::Base
   belongs_to :school 
   
   scope :newest_first,  lambda { order("products.created_at DESC")}
-  scope :status,  lambda { where(:status => "open") }
+  scope :statuses, order("field(status, 'open', 'paused', 'closed')")
 end
