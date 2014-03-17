@@ -2,6 +2,8 @@ MarvinPro::Application.routes.draw do
   
   root "tickets#index"
   
+  get 'admin', :to => "access#index" 
+  
   #get "demo/index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
