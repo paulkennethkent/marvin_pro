@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.statuses
+    @tickets = Ticket.order(:status).reverse
   end
 
   def show
