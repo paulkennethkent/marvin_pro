@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to customer.id %></td>
         <td><%= customer.name %></td>
-        <td><%= mail_to customer.email, nil,  cc:    " ", subject: "Case number # #{customer.id}"  %></td>
+        <td><%= mail_to customer.email, nil,  cc:    " ", subject: "Case number # #{customer.id}", body: "Hello"  %></td>
         <td><%= customer.phone %></td>
         <td><%=l customer.created_at %></td>
         <td>
