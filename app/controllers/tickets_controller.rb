@@ -1,4 +1,7 @@
 class TicketsController < ApplicationController
+  
+  before_action :confirm_logged_in
+ 
   def index
     @tickets = Ticket.order(:status).reverse
   end

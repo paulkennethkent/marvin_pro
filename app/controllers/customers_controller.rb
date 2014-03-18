@@ -1,4 +1,7 @@
 class CustomersController < ApplicationController
+  
+  before_action :confirm_logged_in
+  
   def index
     @customers = Customer.all
   end

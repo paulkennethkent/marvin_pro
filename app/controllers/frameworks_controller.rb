@@ -1,4 +1,7 @@
 class FrameworksController < ApplicationController
+  
+  before_action :confirm_logged_in
+  
   def index
     @frameworks = Framework.all
   end

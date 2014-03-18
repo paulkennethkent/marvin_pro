@@ -1,4 +1,7 @@
 class SchoolsController < ApplicationController
+  
+  before_action :confirm_logged_in
+  
   def index
     @schools = School.all
   end

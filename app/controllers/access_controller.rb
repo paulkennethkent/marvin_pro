@@ -1,4 +1,6 @@
 class AccessController < ApplicationController
+  
+  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
  
   def index
     #display text & links
@@ -27,12 +29,8 @@ class AccessController < ApplicationController
     end
   end
   
-  def logout
-    #mark user as logged out
-    session[:user_id] = nil
-    session[:user_id] = nil
-    flash[:notice] = "Logged Out"
-    redirect_to(:action => "login") 
-  end
+
+  
+
   
 end
