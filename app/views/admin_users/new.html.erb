@@ -1,0 +1,15 @@
+<% @page_title = "Create Admin User" %>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="user new">
+  <h2>Create Admin User</h2>
+
+  <%= form_for(:admin_user, :url => {:action => 'create'}) do |f| %>
+    <%= render(:partial => "form", :locals => {:f => f}) %> 
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+
+</div>

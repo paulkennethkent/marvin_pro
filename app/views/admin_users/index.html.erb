@@ -1,0 +1,34 @@
+<% @page_title = "Admin Users" %>
+<div class="page-header">
+  <h1>Admin Users<%= link_to("Add New Adm", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+</div>
+<div><%= pluralize(@admin_users.size, 'Admin user') %> found</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Created_at</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admin_users.each do |admin_user| %>
+      <tr>
+        <td><%= admin_user.id %></td>
+        <td><%= admin_user.name %></td>
+        <td><%= admin_user.username %></td>
+        <td><%= mail_to admin_user.email %></td>
+        <td><%= admin_user.department %></td>
+        <td><%=l admin_user.created_at %></td>
+        <td>
+          <%= link_to("Edit", {:action => 'edit', :id => admin_user.id}, :class => 'btn btn-mini') %>
+          <%= link_to("Delete", {:action => 'delete', :id => admin_user.id}, :class => 'btn btn-mini btn-danger') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
