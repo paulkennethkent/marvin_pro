@@ -26,7 +26,7 @@ class AdminUsersController < ApplicationController
 
   def update
   	@admin_user = AdminUser.find(params[:id])
-  	if admin_user.update_attributes(admin_user_params)
+  	if @admin_user.update_attributes(admin_user_params)
   		flash[:notice] = "Admin user updated"
   		redirect_to(:action => 'index')
   	else

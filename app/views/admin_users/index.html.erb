@@ -1,6 +1,6 @@
 <% @page_title = "Admin Users" %>
 <div class="page-header">
-  <h1>Admin Users<%= link_to("Add New Adm", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+  <h1>Admin Users<%= link_to("Add New Admin", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
 </div>
 <div><%= pluralize(@admin_users.size, 'Admin user') %> found</div>
 <table class="table table-striped">
