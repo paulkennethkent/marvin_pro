@@ -2,7 +2,7 @@
 
 <div class ="menu"> 
   <h2>Admin Menu</h2>
-  <div class ="identity">Logged in as: <%=  session[:user_id] %></div>
+  <div class ="identity">Logged in as:<strong> <%=  session[:user_id]%></strong> </div>
   <ul>
     <li><%= link_to("Managed Products", :controller => 'products') %> </li>
     <li><%= link_to("Managed Frameworks", :controller => 'frameworks') %> </li>
