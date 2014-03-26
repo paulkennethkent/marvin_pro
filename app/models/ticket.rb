@@ -8,7 +8,7 @@ class Ticket < ActiveRecord::Base
   scope :statuses, order("field(status, 'open', 'paused', 'closed')")
   
   def due_on 
-    due_on = created_at + 2.day
+    due_on = created_at + 1.day
   end
   
 end
