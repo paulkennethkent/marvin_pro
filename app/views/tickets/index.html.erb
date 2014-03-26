@@ -25,7 +25,7 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       
-        <%= status_tag2(ticket.status) %>
+        <%= status_tag3(ticket.due_on, ticket.status) %>
         <td>#<%=ticket.id %></td>
         <td><%= status_tag(ticket.status) %></td>
          <td><%= ticket.customer.name if ticket.customer %></td>

@@ -30,4 +30,15 @@ module ApplicationHelper
      end
   end
   
+  def status_tag3(datetime, string)
+     
+    if datetime > Time.now && string == 'Open'  
+       tag("tr class='success'", nil, true)
+    
+    else datetime < Time.now
+      tag("tr class='closed'", nil, true)
+   
+     end
+  end
+  
 end
