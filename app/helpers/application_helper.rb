@@ -36,7 +36,7 @@ module ApplicationHelper
        tag("tr class='success'", nil, true)
     
     elsif datetime < Time.now && string == 'Open'
-      tag("tr class='closed'", nil, true)
+      tag("tr class='error'", nil, true)
     
     else 
       tag('tr class="warning"', nil, true)

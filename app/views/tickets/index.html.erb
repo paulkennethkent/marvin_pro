@@ -11,30 +11,30 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name('Ticket Number') %></th>
-       <th><%= model_class.human_attribute_name(:status) %></th>
-       <th><%= model_class.human_attribute_name(:customer_id) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:customer_id) %></th>
       <th><%= model_class.human_attribute_name('Customer Email') %></th>
       <th><%= model_class.human_attribute_name(:product_id) %></th>
       <th><%= model_class.human_attribute_name(:school_id) %></th>
-       <th><%= model_class.human_attribute_name(:admin_users_id) %></th>
-        <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%= model_class.human_attribute_name(:due_on) %></th>
+      <th><%= model_class.human_attribute_name(:admin_users_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:due) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <%= status_tag3(ticket.due_on, ticket.status) %>
+        <%= status_tag3(ticket.due, ticket.status) %>
         <td>#<%=ticket.id %></td>
         <td><%= status_tag(ticket.status) %></td>
-         <td><%= ticket.customer.name if ticket.customer %></td>
+        <td><%= ticket.customer.name if ticket.customer %></td>
         <td><%= mail_to ticket.customer.email, nil,  cc:    " ", subject: "Case number # #{ticket.id}", body: "Hello" if ticket.customer %></td>
         <td><%= ticket.product.name if ticket.product  %></td>
         <td><%= ticket.school.name %></td>
         <td><%= ticket.admin_users_id %></td>
         <td><%= l ticket.created_at %></td>
-         <td><%= l ticket.due_on if ticket.status == 'Open' %></td>
+        <td><%= l ticket.due if ticket.status == 'Open' %></td>
         <td>
           <%= link_to("Show", {:action => 'show', :id => ticket.id}, :class => 'btn btn-mini') %>
           <%= link_to("Edit", {:action => 'edit', :id => ticket.id}, :class => 'btn btn-mini') %>
