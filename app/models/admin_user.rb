@@ -22,8 +22,6 @@ class AdminUser < ActiveRecord::Base
   validates_format_of :email, :with => EMAIL_REGEX
   #validates_presence_of :password_confirmation
   
-
-
   def name
   	"#{first_name} #{last_name}"
   	# Or: first_name + ' ' + lasrtname 

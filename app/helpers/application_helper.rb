@@ -7,13 +7,13 @@ module ApplicationHelper
    def status_tag(string)
      
      if string == 'Open' 
-        content_tag(:span, "O" ,:class => 'badge badge-success')
+       content_tag(:span, "Open" ,:class => 'badge badge-success')
     
      elsif string == 'Paused'
-       content_tag(:span, "P" ,:class => 'badge badge-warning')
+       content_tag(:span, "Paused" ,:class => 'badge badge-warning')
        
      else 
-        content_tag(:span, "C", :class => 'badge badge-important')
+       content_tag(:span, "Closed", :class => 'badge badge-important')
      end
   end
   

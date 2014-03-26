@@ -18,6 +18,7 @@
       <th><%= model_class.human_attribute_name(:school_id) %></th>
        <th><%= model_class.human_attribute_name(:admin_users_id) %></th>
         <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:due_on) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -28,11 +29,12 @@
         <td>#<%=ticket.id %></td>
         <td><%= status_tag(ticket.status) %></td>
          <td><%= ticket.customer.name if ticket.customer %></td>
-        <td><%= mail_to ticket.customer.email, nil,  cc:    " ", subject: "Case number # #{ticket.id}", body: "Hello"  %></td>
+        <td><%= mail_to ticket.customer.email, nil,  cc:    " ", subject: "Case number # #{ticket.id}", body: "Hello" if ticket.customer %></td>
         <td><%= ticket.product.name if ticket.product  %></td>
-        <td><%= ticket.school.name if ticket.school %></td>
+        <td><%= ticket.school.name %></td>
         <td><%= ticket.admin_users_id %></td>
         <td><%= l ticket.created_at %></td>
+         <td><%= l ticket.due_on %></td>
         <td>
           <%= link_to("Show", {:action => 'show', :id => ticket.id}, :class => 'btn btn-mini') %>
           <%= link_to("Edit", {:action => 'edit', :id => ticket.id}, :class => 'btn btn-mini') %>
