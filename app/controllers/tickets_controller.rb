@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   
   before_action :confirm_logged_in
+  autocomplete :product, :name, :full => true
  
   def index
     @tickets = Ticket.order(:status).due_on.reverse
