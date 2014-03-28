@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   
   before_action :confirm_logged_in
+  autocomplete :product, :name, :full => true, :extra_data => [:id]
  
   def index
     @tickets = Ticket.order(:status).due_on.reverse
@@ -77,9 +78,9 @@ class TicketsController < ApplicationController
     redirect_to(:action => 'index')
   end
 
-    private
-    def ticket_params
+  private
+   def ticket_params
       params.require(:ticket).permit(:product_id, :customer_id, :school_id, :admin_users_id, :status)
-    end
+   end
 
 end

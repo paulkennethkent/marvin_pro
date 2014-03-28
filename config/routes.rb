@@ -8,6 +8,10 @@ MarvinPro::Application.routes.draw do
   match ':controller(/:action(/:id))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  
+  #resources :tickets do
+    #get :autocomplete_product_name, :on => :collection
+  #end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
@@ -46,6 +50,10 @@ MarvinPro::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
+  
+   resources :tickets do
+      get :autocomplete_product_name, :on => :collection
+   end
 
   # Example resource route with concerns:
   #   concern :toggleable do
@@ -60,4 +68,5 @@ MarvinPro::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
 end

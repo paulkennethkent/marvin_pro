@@ -44,6 +44,10 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
+gem "jquery-ui-rails"
+
+gem 'rails3-jquery-autocomplete'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

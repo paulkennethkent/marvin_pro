@@ -12,11 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require autocomplete-rails
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-jQuery(function($) {
-$("tr[data-link]").click(function() {
-window.location = this.dataset.link
-});
-})
