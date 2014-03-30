@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   
+  
   before_action :confirm_logged_in
   autocomplete :product, :name, :full => true
  

@@ -3,15 +3,18 @@ MarvinPro::Application.routes.draw do
   root "tickets#index"
   
   get 'admin', :to => "access#index" 
+
+
   
   #get "demo/index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
-  resources :tickets do
-    get :autocomplete_product_name, :on => :collection
+  resources :tickets, except: [:new, :create, :edit, :update, :destroy] do
+    get 'autocomplete_product_name', :on => :collection
   end
+ 
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

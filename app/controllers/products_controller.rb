@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 
   before_action :confirm_logged_in
-  
+
+
   def index
     @products = Product.all 
   end
