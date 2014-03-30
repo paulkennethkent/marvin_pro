@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-	has_many :tickets
+  has_many :tickets
   has_one :school
   
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i

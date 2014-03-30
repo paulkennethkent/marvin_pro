@@ -10,8 +10,18 @@ MarvinPro::Application.routes.draw do
   match ':controller(/:action(/:id))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :tickets, except: [:new, :create, :edit, :update, :destroy] do
-    get 'autocomplete_product_name', :on => :collection
+
+  #OLD WAY TO route the autcomplete, update and show didn't work
+  #resources :tickets, except: [:new, :create, :edit, :update, :destroy] do
+    #get 'autocomplete_product_name', :on => :collection
+  #end
+
+
+  #Autcomplete Ticket - product
+  resources :tickets, only: [] do 
+    collection do
+      get 'autocomplete_product_name'
+    end
   end
  
 
