@@ -32,7 +32,7 @@
         <td><%= mail_to ticket.customer.email, nil,  cc:    " ", subject: "Case number # #{ticket.id}", body: "Hello" if ticket.customer %></td>
         <td><%= ticket.product.name if ticket.product  %></td>
         <td><%= ticket.school.name %></td>
-        <td><%= ticket.admin_users_id %></td>
+        <td><%= ticket.admin_user %></td>
         <td><%= l ticket.created_at %></td>
         <td><%= l ticket.due if ticket.status == 'Open' %></td>
         <td>

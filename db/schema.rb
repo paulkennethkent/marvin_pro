@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317112955) do
+ActiveRecord::Schema.define(version: 20140331114615) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      limit: 25
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140317112955) do
   create_table "customers", force: true do |t|
     t.string   "name"
     t.string   "email",      default: "", null: false
-    t.integer  "phone"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140317112955) do
   create_table "schools", force: true do |t|
     t.string   "name"
     t.string   "postcode"
-    t.integer  "phone"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
