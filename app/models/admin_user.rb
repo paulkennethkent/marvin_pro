@@ -1,8 +1,7 @@
 class AdminUser < ActiveRecord::Base
- 
+  has_many :tickets
   has_secure_password
   
-  has_many :tickets
 
   scope :sorted, lambda { order("last_name ASC, first_name ASC") }
   
