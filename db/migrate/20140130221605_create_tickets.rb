@@ -4,7 +4,7 @@ class CreateTickets < ActiveRecord::Migration
     create_table :tickets do |t|
     	t.integer "product_id"
     	t.integer "customer_id"
-      	t.integer "admin_users_id"
+      t.integer "admin_users_id"
     	t.string "status", :string => 1, :default => "o", :null => false
 	  	t.timestamps
 

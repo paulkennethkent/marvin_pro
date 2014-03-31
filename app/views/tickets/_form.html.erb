@@ -25,8 +25,8 @@
   </div>
 </div>
 <div class="control-group">
-  <%= f.label :admin_users_id, :class => 'control-label' %>
+  <%= f.label :admin_user_id, :class => 'control-label' %>
   <div class="controls">
-    <%= f.select(:admin_users_id, @admin_users.map {|s| [s.name, s.id]})  %>
+    <%= f.select(:admin_user_id, @admin_users.map {|s| [s.username, s.id]})  %>
   </div>
 </div>

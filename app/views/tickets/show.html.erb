@@ -19,8 +19,8 @@
   <dd><%= @ticket.school.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:product_id) %>:</strong></dt>
   <dd><%= @ticket.product.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:admin_users_id) %>:</strong></dt>
-  <dd><%= @ticket.admin_users_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:admin_user_id) %>:</strong></dt>
+  <dd><%= @ticket.admin_user.username if @ticket.admin_user %></dd>
 </dl>
 
 <div class="form-actions">
