@@ -27,6 +27,6 @@
 <div class="control-group">
   <%= f.label :admin_user_id, :class => 'control-label' %>
   <div class="controls">
-    <%= f.select(:admin_user_id, @admin_users.map {|s| [s.username, s.id]})  %>
+    <%= f.select(:admin_user_id, @admin_users.map {|s| [s.username, s.id]}, :include_blank => "Please select...")  %>
   </div>
 </div>

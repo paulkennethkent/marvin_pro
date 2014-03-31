@@ -5,6 +5,7 @@ class Ticket < ActiveRecord::Base
   belongs_to :school 
   
   validates_presence_of :product
+  validates_presence_of :admin_user
 
   scope :newest_first,  lambda { order("products.created_at DESC")}
   scope :statuses, order("field(status, 'open', 'paused', 'closed')")
