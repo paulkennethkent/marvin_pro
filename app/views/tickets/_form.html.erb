@@ -7,21 +7,16 @@
   <%= f.hidden_field :product_id %>
 </div>
 <div class="control-group">
+  <%= f.label :customer_id, :class => 'control-label' %>
+  <div class="controls">
+    <%=  f.autocomplete_field :customer, autocomplete_customer_name_tickets_path, :id_element => '#ticket_customer_id'  %>
+  </div>
+  <%= f.hidden_field :customer_id %>
+</div>
+<div class="control-group">
   <%= f.label :status, :class => 'control-label' %>
   <div class="controls">
     <%= f.select(:status, ["Open", "Closed", "Paused"] ) %>
-  </div>
-</div>
-<div class="control-group">
-  <%= f.label :customer_id, :class => 'control-label' %>
-  <div class="controls">
-     <%= f.select(:customer_id, @customers.map {|c| [c.name, c.id]})  %>
-  </div>
-</div>
-<div class="control-group">
-  <%= f.label :school_id, :class => 'control-label' %>
-  <div class="controls">
-  <%= f.select(:school_id, @schools.map {|s| [s.name, s.id]})  %>
   </div>
 </div>
 <div class="control-group">
