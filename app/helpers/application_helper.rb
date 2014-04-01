@@ -39,7 +39,7 @@ module ApplicationHelper
       tag("tr class='error'", nil, true)
     
     else 
-      tag('tr class="warning"', nil, true)
+      tag('tr class="muted"', nil, true)
    
      end
   end

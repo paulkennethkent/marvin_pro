@@ -58,7 +58,7 @@ class TicketsController < ApplicationController
     if @ticket.update_attributes(ticket_params)
      #if save succeeds, redirect to the index action
       flash[:notice] = "Ticket updated successfuly."
-      redirect_to(:action => 'show', :id => @ticket.id)
+      redirect_to(:action => 'index', :id => @ticket.id)
     else
       # if save fails, redisplay the form so user can fix prolbmes 
       #@product_count = Product.count 
