@@ -80,6 +80,10 @@ class TicketsController < ApplicationController
     redirect_to(:action => 'index')
   end
 
+  def funky_method
+    "#{self.name}.camelize"
+  end
+
   private
    def ticket_params
       params.require(:ticket).permit(:product_id, :customer_id, :school_id, :admin_user_id, :status)
