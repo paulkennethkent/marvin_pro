@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331124828) do
+ActiveRecord::Schema.define(version: 20140405083030) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      limit: 25
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20140331124828) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notes", force: true do |t|
+    t.integer  "admin_user_id"
+    t.integer  "ticket_id"
+    t.string   "comment",       limit: 250
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["admin_user_id"], name: "index_notes_on_admin_user_id", using: :btree
+  add_index "notes", ["ticket_id"], name: "index_notes_on_ticket_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"

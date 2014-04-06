@@ -1,5 +1,6 @@
 class AdminUser < ActiveRecord::Base
   has_many :tickets
+  has_many :notes
   has_secure_password
   
 

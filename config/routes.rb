@@ -22,9 +22,10 @@ MarvinPro::Application.routes.draw do
     collection do
       get 'autocomplete_product_name'
       get 'autocomplete_customer_name'
+      resources :notes
     end
   end
- 
+
 
 
   # You can have the root of your site routed with "root"

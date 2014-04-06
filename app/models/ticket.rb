@@ -3,6 +3,7 @@ class Ticket < ActiveRecord::Base
 	belongs_to :admin_user
 	belongs_to :customer
   belongs_to :school 
+  has_many :notes
   
   validates_presence_of :product
   validates_presence_of :admin_user
