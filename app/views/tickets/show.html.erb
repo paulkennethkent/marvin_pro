@@ -21,10 +21,18 @@
   <dd><%= @ticket.admin_user.username if @ticket.admin_user %></dd>
 </dl>
 
-<div class="ticket comment">
+<h2>Comments</h2>
+<% @ticket.notes.each do |note| %>
+  <p>
+    <strong>Note:</strong>
+    <%= note.comment %>
+  </p>
+<% end %>
+
+<div class="note comment">
   <h2>Create Comment</h2>
   
-    <%= form_for(:comment, :url => {:action => 'create'}) do |n| %>
+  <%= form_for([@ticket, @ticket.notes.build]) do |n| %>
   
       <%= render(:partial => "note", :locals => {:n => n}) %> 
 

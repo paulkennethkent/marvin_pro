@@ -21,10 +21,16 @@ MarvinPro::Application.routes.draw do
   resources :tickets, only: [] do 
     collection do
       get 'autocomplete_product_name'
-      get 'autocomplete_customer_name'
-      resources :notes
+      get 'autocomplete_customer_name'   
     end
   end
+  
+  resources :ticket, only:[:create] do
+    resources :notes
+end
+
+
+
 
 
 
