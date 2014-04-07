@@ -21,16 +21,16 @@
   <dd><%= @ticket.admin_user.username if @ticket.admin_user %></dd>
 </dl>
 
-<h2>Comments</h2>
+<h2><%= pluralize(@ticket.notes.size, 'comment') %> found</h2>
 <% @ticket.notes.each do |note| %>
-  <p>
-    <strong>Note:</strong>
-    <%= note.comment %>
-  </p>
+  <blockquote>
+     <p><%= note.comment %></p>
+    <small><%= note.created_at %></small>
+    <small><%= note.admin_user.username if note.admin_user %></small>
+  </blockquote>
 <% end %>
 
 <div class="note comment">
-  <h2>Create Comment</h2>
   
   <%= form_for([@ticket, @ticket.notes.build]) do |n| %>
   
