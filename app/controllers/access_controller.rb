@@ -1,9 +1,15 @@
 class AccessController < ApplicationController
   
   before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
- 
+  #requires you to login using an Admin User account before accessing with exceptions
+  
+  layout 'login'
+  
   def index
     #display text & links
+    
+    render layout: 'application'
+    #renders the standard application layout once logged in
   end
 
   def login

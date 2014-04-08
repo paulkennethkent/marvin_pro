@@ -1,6 +1,7 @@
 class AdminUsersController < ApplicationController
 
   before_action :confirm_logged_in
+  #requires you to login using an Admin User account before accessing
 
   def index
   	@admin_users = AdminUser.sorted 
