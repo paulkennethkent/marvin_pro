@@ -42,38 +42,34 @@
   </head>
   <body>        
 
-      <div id="wrap">
-        <div class="container">
-          <div class="row-fluid">
-            <div class="span4 offset4">
+      <div class="wrapper">
+        <div class="row">
+          <div class="container">
+            <div class="span4 offset4 center form">
               <div class="page-header">
                <h1>MARVIN</h1>
-              </div>
+              </div><!-- end page-hearder -->
                 <%= bootstrap_flash %>
                 <% if !flash[:notice].blank? %>
                   <div class="notice">
-                  </div>
+                  </div><!--/notice-->
                 <%end%>
                 <% if !flash[:error].blank? %>
                   <div class="notice">
                   </div><!--/notice-->
                 <%end%>
-              
-            <!-- before yield -->
-            <%= yield %>
-            <!-- after yield -->
-              
-          </div><!--/span4 fluid-->
-        </div><!--/row fluid-->
-       </div> <!-- /container -->  
-
-      <div id="push"/>
-    </div><!--/wrap-->
+                <!-- before yield -->
+                <%= yield %>
+                <!-- after yield -->
+            </div> <!-- end of span4 offset4 -->
+          </div> <!-- end of container -->
+        </div><!-- end of row -->
+       
+        <div class="push"></div>
+    </div><!--/wrapper-->
     
-  <div id="footer">
-        <div class="container">
+  <div class="footer">
           <p>&copy; Marvin Pro Company 2014</p>
-        </div>
   </div><!-- /footer --> 
   </body>
 </html>

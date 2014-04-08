@@ -11,7 +11,6 @@
 
 @import "twitter/bootstrap/responsive";
 
-@media (max-width: 550px);
 
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
@@ -31,12 +30,32 @@
 //@import "twitter/bootstrap/sprites.less";
 
 // Your custom LESS stylesheets goes here
+
+// sticky footers
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -55px;
+}
+.footer, .push {
+    height: 55px;
+}
 //
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
+
+// centralise form
+.center {
+    text-align:center;
+}
+
+.center form {
+    display:inline-block;
+}
 //
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
-//
-// Example:
-// @linkColor: #ff0000;
+
