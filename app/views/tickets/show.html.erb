@@ -43,6 +43,7 @@
 <form class="form-inline">
   <%= form_for([@ticket, @ticket.notes.build]) do |n| %>
       <%= render(:partial => "note", :locals => {:n => n}) %> 
+      
     <%= n.submit nil, :class => 'btn btn-primary' %>
 <% end %>  
 <div class ="identity">Posting as:<strong> <%=  session[:user_username]%></strong> </div>
