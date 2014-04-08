@@ -20,7 +20,7 @@ module ApplicationHelper
      def status_tag2(string)
      
      if string == 'Open' 
-       tag("tr class='success'", nil, true)
+       tag("tr class='success pull-right'", nil, true)
     
      elsif string == 'Paused'
        tag("tr class='warning'", nil, true)

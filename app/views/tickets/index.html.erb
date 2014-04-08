@@ -24,12 +24,12 @@
   </thead>
   <tbody>
     <% @tickets.each do |ticket| %>
-      <tr>
+      <tr data-link="https://www.google.co.uk">
         <%= status_tag3(ticket.due, ticket.status) %>
         <td>#<%=ticket.id %></td>
         <td><%= status_tag(ticket.status) %></td>
         <td><%= ticket.customer.name if ticket.customer %></td>
-        <td><%= mail_to ticket.customer.email, nil,  cc:    " ", subject: "Case number # #{ticket.id}", body: "Hello" if ticket.customer %></td>
+        <td><%= ticket.customer.email if ticket.customer %></td>
         <td><%= ticket.product.name if ticket.product  %></td>
         <td><%= ticket.school.name if ticket.school %></td>
         <td><%= ticket.admin_user.username if ticket.admin_user %></td>
