@@ -1,7 +1,7 @@
 <% @page_title = "Tickets - Show" %>
 <%- model_class = Ticket -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h2><%=t '.title', :default => model_class.model_name.human.titleize %> #<%= @ticket.id %><div class ="pull-right"><%= status_button(@ticket.status) %></div> </h2>
 </div> <!-- end of page header -->
 <div class="row">
   <div class="span6">
@@ -30,7 +30,7 @@
 
 
 <hr />
-<h2><%= pluralize(@ticket.notes.size, 'comment') %> found</h2>
+<h4>Comments - <%= pluralize(@ticket.notes.size, 'comment') %> found</h4>
 <% @ticket.notes.each do |note| %>
   <blockquote>
     <p><%= note.comment %></p>
@@ -40,21 +40,11 @@
 <% end %>
 
 <div class="note comment">
-  
-  <%= form_for([@ticket, @ticket.notes.build]) do |n| %>
+  <%= form_for([@ticket, @ticket.notes.build], :html => {:class => 'form-inline'}) do |n| %>
       <%= render(:partial => "note", :locals => {:n => n}) %>  
-    <div class="form-actions">
     <%= n.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
   </div>
 <% end %>
+  <div class ="identity">Posting as:<strong> <%=  session[:user_username]%></strong> </div>
 </div>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")), :class => 'btn', :action => 'index'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")), :class => 'btn', :action => 'edit', :id => @ticket.id %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
