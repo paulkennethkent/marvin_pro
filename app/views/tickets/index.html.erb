@@ -27,7 +27,7 @@
       <tr data-link="https://www.google.co.uk">
         <%= status_tag3(ticket.due, ticket.status) %>
         <td>#<%=ticket.id %></td>
-        <td><%= status_tag(ticket.status) %></td>
+        <td><%= status_badge(ticket.status) %></td>
         <td><%= ticket.customer.name if ticket.customer %></td>
         <td><%= ticket.customer.email if ticket.customer %></td>
         <td><%= ticket.product.name if ticket.product  %></td>
