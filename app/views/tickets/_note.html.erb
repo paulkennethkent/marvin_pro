@@ -1,4 +1,11 @@
-
+<div>
   <%= n.hidden_field :admin_user_id, :value => session[:user_id] %>
-  <%= n.text_field(:comment) %>
-
+</div>
+ 
+<div class="control-group">
+  <%= n.label :comment, :class => 'control-label' %>
+  <div class="controls">
+    <%= n.text_field(:comment) %>
+  </div>
+  <div class ="identity">Posting as:<strong> <%=  session[:user_username]%></strong> </div>
+</div>

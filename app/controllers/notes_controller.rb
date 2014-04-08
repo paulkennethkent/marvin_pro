@@ -14,4 +14,5 @@ def create
 	redirect_to(:controller => 'tickets', :action => 'show', :id => @ticket)
   end
 end
+end
 

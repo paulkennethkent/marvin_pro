@@ -1,7 +1,7 @@
 <% @page_title = "Tickets - Show" %>
-<%- model_class = Ticket  -%>
+<%- model_class = Ticket -%>
 <div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human.titleize %> #<%= @ticket.id %><div class ="pull-right"><%= status_button(@ticket.status) %></div> </h2>
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div> <!-- end of page header -->
 <div class="row">
   <div class="span6">
@@ -30,7 +30,7 @@
 
 
 <hr />
-<h4>Comments - <%= pluralize(@ticket.notes.size, 'comment') %> found</h4>
+<h2><%= pluralize(@ticket.notes.size, 'comment') %> found</h2>
 <% @ticket.notes.each do |note| %>
   <blockquote>
     <p><%= note.comment %></p>
@@ -39,17 +39,22 @@
   </blockquote>
 <% end %>
 
-
-<form class="form-inline">
+<div class="note comment">
+  
   <%= form_for([@ticket, @ticket.notes.build]) do |n| %>
-      <%= render(:partial => "note", :locals => {:n => n}) %> 
-      
+      <%= render(:partial => "note", :locals => {:n => n}) %>  
+    <div class="form-actions">
     <%= n.submit nil, :class => 'btn btn-primary' %>
-<% end %>  
-<div class ="identity">Posting as:<strong> <%=  session[:user_username]%></strong> </div>
-</form> <!-- end of note comment -->
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+</div>
 
-
-
-
-
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")), :class => 'btn', :action => 'index'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")), :class => 'btn', :action => 'edit', :id => @ticket.id %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
