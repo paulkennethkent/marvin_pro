@@ -16,7 +16,7 @@
 <div class="control-group">
   <%= f.label :status, :class => 'control-label' %>
   <div class="controls">
-    <%= f.select(:status, ["Open", "Closed", "Paused"] ) %>
+    <%= f.select(:status, ["Open", "Closed", "Paused"], :include_blank => "Please select..." ) %>
   </div>
 </div>
 <div class="control-group">

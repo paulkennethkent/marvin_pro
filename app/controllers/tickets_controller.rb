@@ -80,9 +80,6 @@ class TicketsController < ApplicationController
     redirect_to(:action => 'index')
   end
 
-  def funky_method
-    "#{self.name}.camelize"
-  end
 
   private
    def ticket_params
