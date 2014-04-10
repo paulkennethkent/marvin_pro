@@ -16,6 +16,18 @@ MarvinPro::Application.routes.draw do
     #get 'autocomplete_product_name', :on => :collection
   #end
 
+  resources :products do
+    member do
+      get :delete
+    end
+  end
+
+  resources :admin_users do
+    member do
+      get :delete
+    end
+  end
+
 
   #Autcomplete Ticket - product
   resources :tickets, only: [] do 
