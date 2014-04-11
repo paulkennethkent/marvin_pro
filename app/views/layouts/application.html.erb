@@ -69,7 +69,7 @@
               </li> 
             </ul>
             <ul class ="nav pull-right">
-              <li><%= link_to session[:user_username], :controller => 'admin_users',:action => 'edit', :id => session[:user_id] if session[:user_id] %></li>
+              <li><%= link_to session[:user_username],edit_admin_user_path(session[:user_id]) if session[:user_id] %></li>
               <li><%= link_to("Logout", :action => 'logout') %> </li>
             </ul>
           </div><!--/.nav-collapse -->
