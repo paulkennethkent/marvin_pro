@@ -3,7 +3,7 @@
 
 <div class="page-header">  
 
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> <%= link_to("Add New Ticket", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> <%= link_to("Add New Ticket", new_ticket_path, :class => 'btn btn-inverse pull-right') %></h1>
 
 </div>
  
@@ -36,9 +36,9 @@
         <td><%= ticket.created_at.to_formatted_s(:long_ordinal) %></td>
         <td><%= ticket.due.to_formatted_s(:long_ordinal) if ticket.status == 'Open' %></td>
         <td>
-          <%= link_to("Show", {:action => 'show', :id => ticket.id}, :class => 'btn btn-mini') %>
-          <%= link_to("Edit", {:action => 'edit', :id => ticket.id}, :class => 'btn btn-mini') %>
-          <%= link_to("Delete", {:action => 'delete', :id => ticket.id}, :class => 'btn btn-mini btn-danger') %>
+          <%= link_to("Show", ticket_path(ticket.id), :class => 'btn btn-mini') %>
+          <%= link_to("Edit", edit_ticket_path(ticket.id) , :class => 'btn btn-mini') %>
+          <%= link_to("Delete", delete_ticket_path(ticket.id) , :class => 'btn btn-mini btn-danger') %>
         </td>
       </tr>
     <% end %>

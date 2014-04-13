@@ -1,13 +1,11 @@
 MarvinPro::Application.routes.draw do
   
-  root "tickets#index"
+  root "ticket#index"
   
   get 'admin', :to => "access#index" 
-
-
   
   #get "demo/index"
-  match ':controller(/:action(/:id))', :via => [:get, :post]
+  # match ':controller(/:action(/:id))', :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -28,6 +26,33 @@ MarvinPro::Application.routes.draw do
     end
   end
 
+  resources :schools do
+    member do
+      get :delete
+    end
+  end
+
+  resources :customers do
+    member do
+      get :delete
+    end
+  end
+
+  resources :frameworks do
+    member do
+      get :delete
+    end
+  end
+
+   resources :tickets  do
+    member do
+      get :delete
+    end
+    resources :notes
+end
+
+
+
 
   #Autcomplete Ticket - product
   resources :tickets, only: [] do 
@@ -37,9 +62,8 @@ MarvinPro::Application.routes.draw do
     end
   end
   
-  resources :ticket, only:[:create] do
-    resources :notes
-end
+  
+
 
 
 
