@@ -1,6 +1,6 @@
 MarvinPro::Application.routes.draw do
   
-  root "ticket#index"
+  root "tickets#index"
   
   get 'admin', :to => "access#index" 
   
@@ -13,6 +13,13 @@ MarvinPro::Application.routes.draw do
   #resources :tickets, except: [:new, :create, :edit, :update, :destroy] do
     #get 'autocomplete_product_name', :on => :collection
   #end
+
+  resources :access do
+    collection do
+      post 'login'
+      post 'logout' => :destroy
+    end
+  end
 
   resources :products do
     member do
@@ -44,30 +51,16 @@ MarvinPro::Application.routes.draw do
     end
   end
 
-   resources :tickets  do
+   resources :tickets do
     member do
       get :delete
     end
-    resources :notes
-end
-
-
-
-
-  #Autcomplete Ticket - product
-  resources :tickets, only: [] do 
     collection do
       get 'autocomplete_product_name'
-      get 'autocomplete_customer_name'   
+      get 'autocomplete_customer_name' 
     end
+    resources :notes
   end
-  
-  
-
-
-
-
-
 
 
   # You can have the root of your site routed with "root"
