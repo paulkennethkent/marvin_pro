@@ -5,7 +5,7 @@ MarvinPro::Application.routes.draw do
   get 'admin', :to => "access#index" 
   
   #get "demo/index"
-  # match ':controller(/:action(/:id))', :via => [:get, :post]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,12 +14,11 @@ MarvinPro::Application.routes.draw do
     #get 'autocomplete_product_name', :on => :collection
   #end
 
-  resources :access do
-    collection do
-      post 'login'
-      post 'logout' => :destroy
-    end
-  end
+  #resources :access do
+    #member do 
+     # get :delete
+    #end
+  #end
 
   resources :products do
     member do
@@ -61,6 +60,8 @@ MarvinPro::Application.routes.draw do
     end
     resources :notes
   end
+  
+  match ':controller(/:action(/:id))', :via => [:get, :post]
 
 
   # You can have the root of your site routed with "root"
