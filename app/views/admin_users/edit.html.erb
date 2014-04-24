@@ -4,7 +4,7 @@
 <div class="subjects update">
   <h2>Edit Admin User</h2>
 
-  <%= form_for(:admin_user, :url => {:action => 'update', :id => @admin_user.id}) do |f| %>
+  <%= form_for(@admin_user) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %> 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

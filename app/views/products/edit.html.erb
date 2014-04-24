@@ -4,7 +4,7 @@
 <div class="subjects update">
   <h2>Update Product</h2>
 
-  <%= form_for(:product, :url => {:action => 'update', :id => @product.id}) do |f| %>
+  <%= form_for(@product) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %> 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

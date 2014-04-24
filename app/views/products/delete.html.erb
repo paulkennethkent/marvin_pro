@@ -2,7 +2,7 @@
 <div class="subjects delete">
 	<h2>Delete Product</h2>
 
-	<%= form_for(:product, :url => {:action => 'destroy', :id => @product.id}) do |f| %>
+  <%= form_for(:product, @url => product_path(@product.id), :html => { :method => :DELETE } ) do |f| %>
 
 	<p>Are you sure you want to permanently delete this subject?</p>
 		<dl class="dl-horizontal">

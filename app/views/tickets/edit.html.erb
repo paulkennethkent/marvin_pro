@@ -3,7 +3,7 @@
 
 <div class="schools update">
   <h2>Update Ticket</h2>
-   <%= form_for(:ticket, :url => {:action => 'update', :id => @ticket.id}) do |f| %>
+   <%= form_for(@ticket) do |f| %>
   
         <%= render(:partial => "form", :locals => {:f => f}) %> 
   

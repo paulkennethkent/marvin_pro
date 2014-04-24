@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405083030) do
+ActiveRecord::Schema.define(version: 20140417131811) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      limit: 25
@@ -56,7 +56,12 @@ ActiveRecord::Schema.define(version: 20140405083030) do
     t.string   "tier"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "isbn"
+    t.string   "support_url"
+    t.integer  "framework_id"
   end
+
+  add_index "products", ["framework_id"], name: "index_products_on_framework_id", using: :btree
 
   create_table "schools", force: true do |t|
     t.string   "name"

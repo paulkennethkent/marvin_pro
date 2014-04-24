@@ -4,7 +4,7 @@
 <div class="frameworks update">
   <h2>Update Framework</h2>
 
-  <%= form_for(:framework, :url => {:action => 'update', :id => @framework.id}) do |f| %>
+  <%= form_for(@framework) do |f| %>
     <%= render(:partial => "form", :locals => {:f => f}) %> 
 
   <div class="form-actions">

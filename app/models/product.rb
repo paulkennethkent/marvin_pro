@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
   has_many :tickets
+  belongs_to :framework
+  
   
   validates_presence_of :name
   validates_length_of :name, :maximum => 255
