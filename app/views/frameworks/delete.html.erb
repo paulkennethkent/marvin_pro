@@ -2,7 +2,7 @@
 <div class="subjects delete">
 	<h2>Delete Framework</h2>
 
-	<%= form_for(:framework, :url => {:action => 'destroy', :id => @framework.id}) do |f| %>
+	<%= form_for(:framework, :url => framework_path(@framework.id), :html => { :method => :delete } ) do |f| %>
 
 	<p>Are you sure you want to permanently delete this framework?</p>
 		<dl class="dl-horizontal">

@@ -2,7 +2,7 @@
 <div class="school delete">
 	<h2>Delete School</h2>
 
-	<%= form_for(:school, :url => {:action => 'destroy', :id => @school.id}) do |f| %>
+	<%= form_for(:school, :url => school_path(@school.id), :html => { :method => :delete } ) do |f| %>
 
 	<p>Are you sure you want to permanently delete this school?</p>
 		<dl class="dl-horizontal">

@@ -2,7 +2,7 @@
 <div class="customer delete">
 	<h2>Delete Customer</h2>
 
-	<%= form_for(:customer, :url => {:action => 'destroy', :id => @customer.id}) do |f| %>
+	<%= form_for(:customer, :url => customer_path(@customer.id), :html => { :method => :delete } ) do |f| %>
 
 	<p>Are you sure you want to permanently delete this school?</p>
 		<dl class="dl-horizontal">

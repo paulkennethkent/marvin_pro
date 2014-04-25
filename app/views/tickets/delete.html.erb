@@ -2,7 +2,7 @@
 <div class="subjects delete">
 	<h2>Delete Ticket</h2>
 
-	<%= form_for(:product, :url => {:action => 'destroy', :id => @ticket.id}) do |f| %>
+	<%= form_for(:ticket, :url => ticket_path(@ticket.id), :html => { :method => :delete } ) do |f| %>
 
 	<p>Are you sure you want to permanently delete this subject?</p>
 		<dl class="dl-horizontal">
