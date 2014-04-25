@@ -12,3 +12,21 @@
       <%= f.text_field :tier, :class => 'text_field' %>
     </div>
   </div>
+ <div class="control-group">
+    <%= f.label :isbn, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :isbn, :class => 'text_field' %>
+    </div>
+  </div>
+ <div class="control-group">
+    <%= f.label :support_url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :support_url, :class => 'text_field' %>
+    </div>
+  </div>
+<div class="control-group">
+  <%= f.label :framework_id, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select(:framework_id, @frameworks.map {|f| [f.name, f.id]}, :include_blank => "Please select...")  %>
+  </div>
+</div>

@@ -4,12 +4,28 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @product.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:tier) %>:</strong></dt>
-  <dd><%= @product.tier %></dd>
-</dl>
+<div class="row">
+  <div class="span6">
+    <h4>Customer details</h4>
+    <dl>
+      <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+      <dd><%= @product.name %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:tier) %>:</strong></dt>
+      <dd><%= @product.tier %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:isbn) %>:</strong></dt>
+      <dd><%= @product.isbn %></dd>
+    </dl>
+  </div> <!-- end of span6 -->
+  <div class='span6 pullright'>
+    <h4>Product details</h4>
+    <dl>
+      <dt><strong><%= model_class.human_attribute_name(:support_url) %>:</strong></dt>
+      <dd><%= @product.support_url %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:framework_id) %>:</strong></dt>
+      <dd><%= @product.framework_id if @product.framework %></dd>
+    </dl>
+  </div> <!-- end of span 6 -->
+</div> <!-- end of row -->
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")), :class => 'btn', :action => 'index'  %>

@@ -10,6 +10,9 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:tier) %></th>
+      <th><%= model_class.human_attribute_name(:isbn) %></th>
+      <th><%= model_class.human_attribute_name(:support_url) %></th>
+      <th><%= model_class.human_attribute_name("framwork") %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -20,6 +23,9 @@
         <td><%= product.id %></td>
         <td><%= product.name %></td>
         <td><%= product.tier %></td>
+        <td><%= product.isbn %></td>
+        <td><%= product.support_url %></td>
+        <td><%= product.framework.id if product.framework %></td>
         <td><%=l product.created_at %></td>
         <td>
           <%= link_to("Show", product_path(product.id), :class => 'btn btn-mini') %>

@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @frameworks = Framework.all
   end
 
   def create
@@ -25,12 +26,14 @@ class ProductsController < ApplicationController
       redirect_to(:action => 'index')
     else
       # if save fails, redisplay the form so user can fix prolbmes 
+      @frameworks = Framework.all
       render('new')
     end
   end
 
   def edit
     @product = Product.find(params[:id])
+    @framework = Framework.all
   end
 
   def update
@@ -61,7 +64,7 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :tier)
+      params.require(:product).permit(:name, :tier, :isbn, :support_url, :framework_id)
     end
 end
 
