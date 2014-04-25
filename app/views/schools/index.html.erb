@@ -1,7 +1,7 @@
 <% @page_title = "Schools" %>
 <%- model_class = School -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New School", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New School", new_school_path, :class => 'btn btn-inverse pull-right') %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -23,9 +23,9 @@
         <td><%= school.phone %></td>
         <td><%=l school.created_at %></td>
         <td>
-          <%= link_to("Show", {:action => 'show', :id => school.id}, :class => 'btn btn-mini') %>
-          <%= link_to("Edit", {:action => 'edit', :id => school.id}, :class => 'btn btn-mini') %>
-          <%= link_to("Delete", {:action => 'delete', :id => school.id}, :class => 'btn btn-mini btn-danger') %>
+          <%= link_to("Show", school_path(school.id), :class => 'btn btn-mini') %>
+          <%= link_to("Edit", edit_school_path(school.id) , :class => 'btn btn-mini') %>
+          <%= link_to("Delete", delete_school_path(school.id) , :class => 'btn btn-mini btn-danger') %>
         </td>
       </tr>
     <% end %>

@@ -1,7 +1,7 @@
 <% @page_title = "Frameworks" %>
 <%- model_class = Framework -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New Frameworks", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New Frameworks", new_framework_path, :class => 'btn btn-inverse pull-right') %></h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -19,9 +19,9 @@
         <td><%= framework.name %></td>
         <td><%=l framework.created_at %></td>
         <td>
-          <%= link_to("Show", {:action => 'show', :id => framework.id}, :class => 'btn btn-mini') %>
-          <%= link_to("Edit", {:action => 'edit', :id => framework.id}, :class => 'btn btn-mini') %>
-          <%= link_to("Delete", {:action => 'delete', :id => framework.id}, :class => 'btn btn-mini btn-danger') %>
+          <%= link_to("Show", framework_path(framework.id) , :class => 'btn btn-mini') %>
+          <%= link_to("Edit", edit_framework_path(framework.id) , :class => 'btn btn-mini') %>
+          <%= link_to("Delete", delete_framework_path(framework.id) , :class => 'btn btn-mini btn-danger') %>
         </td>
       </tr>
     <% end %>

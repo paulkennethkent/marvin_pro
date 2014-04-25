@@ -1,7 +1,7 @@
 <% @page_title = "Products" %>
 <%- model_class = Product -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New Product", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %><%= link_to("Add New Product", new_product_path, :class => 'btn btn-inverse pull-right') %></h1>
 </div>
 <div><%= pluralize(@products.size, 'product') %> found</div>
 <table class="table table-striped">
@@ -22,9 +22,9 @@
         <td><%= product.tier %></td>
         <td><%=l product.created_at %></td>
         <td>
-          <%= link_to("Show", product_path(product.id)) %>
-          <%= link_to("Edit", edit_product_path(product.id)) %>
-          <%= link_to("Delete", delete_product_path(product.id)) %>
+          <%= link_to("Show", product_path(product.id), :class => 'btn btn-mini') %>
+          <%= link_to("Edit", edit_product_path(product.id), :class => 'btn btn-mini') %>
+          <%= link_to("Delete", delete_product_path(product.id), :class => 'btn btn-mini btn-danger') %>
         </td>
       </tr>
     <% end %>

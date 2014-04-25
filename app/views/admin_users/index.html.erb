@@ -1,6 +1,6 @@
 <% @page_title = "Admin Users" %>
 <div class="page-header">
-  <h1>Admin Users<%= link_to("Add New Admin", {:action => 'new'}, :class => 'btn btn-inverse pull-right') %></h1>
+  <h1>Admin Users<%= link_to("Add New Admin", new_admin_user, :class => 'btn btn-inverse pull-right') %></h1>
 </div>
 <div><%= pluralize(@admin_users.size, 'Admin user') %> found</div>
 <table class="table table-striped">
@@ -25,8 +25,8 @@
         <td><%= admin_user.department %></td>
         <td><%=l admin_user.created_at %></td>
         <td>
-          <%= link_to("Edit", {:action => 'edit', :id => admin_user.id}, :class => 'btn btn-mini') %>
-          <%= link_to("Delete", {:action => 'delete', :id => admin_user.id}, :class => 'btn btn-mini btn-danger') %>
+          <%= link_to("Edit", edit_admin_user(admin_user.id), :class => 'btn btn-mini') %>
+          <%= link_to("Delete", delete_admin_user(admin_user.id), :class => 'btn btn-mini btn-danger') %>
         </td>
       </tr>
     <% end %>
