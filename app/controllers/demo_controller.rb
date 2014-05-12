@@ -22,5 +22,12 @@ class DemoController < ApplicationController
   
   def number_helpers
   end 
+  
+  def make_error 
+    # My guesses for the 3 most common errors: 
+    #render(:text => "test") #syntax error 
+    #render(:text => @something.upcase) #undefined method
+    #render(:text => "1" + 1) #cant convert type 
+  end
 
 end

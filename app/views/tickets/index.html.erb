@@ -24,16 +24,16 @@
   </thead>
   <tbody>
     <% @tickets.each do |ticket| %>
-      <tr data-link="https://www.google.co.uk">
+      <tr data-link="<%= edit_ticket_path(ticket.id) %>"
         <%= status_tag3(ticket.due, ticket.status) %>
         <td>#<%=ticket.id %></td>
         <td><%= status_badge(ticket.status) %></td>
-        <td><%= ticket.customer.name if ticket.customer %></td>
-        <td><%= ticket.customer.email if ticket.customer %></td>
-        <td><%= ticket.product.name if ticket.product  %></td>
-        <td><%= ticket.school.name if ticket.school %></td>
-        <td><%= ticket.admin_user.username if ticket.admin_user %></td>
-        <td><%= ticket.created_at.to_formatted_s(:long_ordinal) %></td>
+        <td><%= ticket.customer.try(:name) %></td>
+        <td><%= ticket.customer.try(:email) %></td>
+        <td><%= ticket.product.try(:name) %></td>
+        <td><%= ticket.school.try(:name) %></td>
+        <td><%= ticket.admin_user.try(:username) %></td>
+        <td><%= ticket.created_at.try(:to_formatted_s, :long_ordinal) %></td>
         <td><%= ticket.due.to_formatted_s(:long_ordinal) if ticket.status == 'Open' %></td>
         <td>
           <%= link_to("Show", ticket_path(ticket.id), :class => 'btn btn-mini') %>
