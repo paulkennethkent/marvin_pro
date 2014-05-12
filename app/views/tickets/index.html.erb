@@ -19,13 +19,14 @@
       <th><%= model_class.human_attribute_name(:admin_users_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= model_class.human_attribute_name(:due) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+
     </tr>
   </thead>
   <tbody>
     <% @tickets.each do |ticket| %>
-      <tr data-link="<%= edit_ticket_path(ticket.id) %>"
-        <%= status_tag3(ticket.due, ticket.status) %>
+
+    <%= status_tag3(ticket.due, ticket.status, ticket.id) %>
+    
         <td>#<%=ticket.id %></td>
         <td><%= status_badge(ticket.status) %></td>
         <td><%= ticket.customer.try(:name) %></td>
@@ -35,11 +36,7 @@
         <td><%= ticket.admin_user.try(:username) %></td>
         <td><%= ticket.created_at.try(:to_formatted_s, :long_ordinal) %></td>
         <td><%= ticket.due.to_formatted_s(:long_ordinal) if ticket.status == 'Open' %></td>
-        <td>
-          <%= link_to("Show", ticket_path(ticket.id), :class => 'btn btn-mini') %>
-          <%= link_to("Edit", edit_ticket_path(ticket.id) , :class => 'btn btn-mini') %>
-          <%= link_to("Delete", delete_ticket_path(ticket.id) , :class => 'btn btn-mini btn-danger') %>
-        </td>
+
       </tr>
     <% end %>
   </tbody>

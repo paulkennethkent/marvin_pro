@@ -34,14 +34,13 @@ module ApplicationHelper
      end
    end
   
-  def status_tag3(datetime, string)
+  def status_tag3(datetime, string, integer)
     if datetime > Time.now && string == 'Open'  
-       tag("tr class='success'", nil, true)
+      tag("tr class='success', id='datalink', data-link='/tickets/55'", nil, true)
     elsif datetime < Time.now && string == 'Open'
       tag("tr class='error'", nil, true)
     else 
       tag('tr class="muted"', nil, true)
      end
   end
-  
 end
