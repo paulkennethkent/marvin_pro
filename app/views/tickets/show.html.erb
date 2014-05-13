@@ -19,9 +19,13 @@
     <h4>Product details</h4>
     <dl>
       <dt><strong><%= model_class.human_attribute_name(:product_id) %>:</strong></dt>
-      <dd><%= @ticket.product.name %></dd>
+      <dd><%= @ticket.product.try(:name) %></dd>
       <dt><strong><%= model_class.human_attribute_name("Tier") %>:</strong></dt>
-      <dd><%= @ticket.product.tier %></dd>
+      <dd><%= @ticket.product.try(:tier) %></dd>
+      <dt><strong><%= model_class.human_attribute_name("ISBN") %>:</strong></dt>
+      <dd><%= @ticket.product.try(:isbn) %></dd>
+      <dt><strong><%= model_class.human_attribute_name("Support Link") %>:</strong></dt>
+      <dd><%= @ticket.product.try(:support_url) %></dd>
       <dt><strong><%= model_class.human_attribute_name(:admin_user_id) %>:</strong></dt>
       <dd><%= @ticket.admin_user.username if @ticket.admin_user %></dd>
     </dl>

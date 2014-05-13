@@ -7,6 +7,7 @@ class TicketsController < ApplicationController
  
   def index
     @tickets = Ticket.order(:status).due_on.reverse
+    #@tickets = Ticket.order(:statuses)
   end
 
   def show
@@ -16,7 +17,6 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     #@product_count = Product.count
-    @products = Product.all
     @schools = School.all 
     @customers = Customer.all 
     @admin_users = AdminUser.all 

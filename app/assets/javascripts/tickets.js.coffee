@@ -8,4 +8,5 @@
 $ ->
    $("tr[data-link]").click ->
        window.location.replace($(this).data("link"));
+        
 
