@@ -1,7 +1,13 @@
 <% @page_title = "Tickets - Show" %>
 <%- model_class = Ticket -%>
+     <ul class="breadcrumb">
+         <li><%= link_to "Tickets", "/tickets" %> <span class="divider">/</span></li>
+          <li>Ticket #<%= @ticket.id %></span></li>
+
+    </ul>
 <div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human.titleize %> #<%= @ticket.id %><div class ="pull-right"><%= status_button(@ticket.status) %></div> </h2>
+  <h2><%=t '.title', :default => model_class.model_name.human.titleize %> #<%= @ticket.id %>
+<div class ="pull-right"><%= status_button(@ticket.status) %></div> </h2>
 </div> <!-- end of page header -->
 <div class="row">
   <div class="span6">

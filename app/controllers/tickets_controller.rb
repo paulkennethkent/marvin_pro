@@ -30,7 +30,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       # if save succeeds, redirect to the index action
       flash[:notice] = "Ticket created successfuly."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'show', :id => @ticket.id)
     else
       # if save fails, redisplay the form so user can fix prolbmes 
       #@product_count = Product.count 

@@ -13,4 +13,9 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
   </div>
 <% end %>
+  <div> <script>$('#ticket_product').bind('railsAutocomplete.select', function(event, data){
+  alert("I am an alert box!");
+  document.write("<h1>Hello World!</h1>");
+  alert(data.item.id);
+}); </script> </div>
 </div>
