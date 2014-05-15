@@ -1,21 +1,35 @@
 <% @page_title = "Tickets - New" %>
 <%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
 
-<div class="ticket new">
-  <h2>Create Ticket</h2>
-  
-    <%= form_for(:ticket, :url => {:action => 'create'}) do |f| %>
-  
-      <%= render(:partial => "form", :locals => {:f => f}) %> 
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
-  </div>
-<% end %>
-  <div> <script>$('#ticket_product').bind('railsAutocomplete.select', function(event, data){
-  alert("I am an alert box!");
-  document.write("<h1>Hello World!</h1>");
-  alert(data.item.id);
-}); </script> </div>
+<div class="ticket new ">
+    <h2>Create Ticket</h2>
+
+    <%= form_for(:ticket, :url => {:action => 'create'}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %> 
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+    </div>
+
+
+
+    <% end %>
+    </div>
+
+
+    <script>
+      $('#ticket_product').bind('railsAutocomplete.select', function(event, data){
+        /* Do something here */
+            document.getElementById('test').innerHTML='<h1>hello</h1>';
+        });
+      $('#ticket_customer').bind('railsAutocomplete.select', function(event, data){
+        /* Do something here */
+        alert(data.item.id);
+               });
+      </script>
+  
+  
 </div>
