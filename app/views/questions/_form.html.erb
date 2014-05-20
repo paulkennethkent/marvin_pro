@@ -1,0 +1,19 @@
+<%= error_messages_for(@question) %> 
+<div class="control-group">
+  <%= f.label :body, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :body, :class => 'text_field' %>
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :product_id, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select(:product_id, @products.map {|f| [f.name, f.id]}, :include_blank => "Please select...")  %>
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :framework_id, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select(:framework_id, @frameworks.map {|f| [f.name, f.id]}, :include_blank => "Please select...")  %>
+  </div>
+</div>

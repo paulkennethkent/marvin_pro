@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   has_many :tickets
+  has_many :questions
   belongs_to :framework
   
   

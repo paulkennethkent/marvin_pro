@@ -61,6 +61,18 @@ MarvinPro::Application.routes.draw do
     resources :notes
   end
   
+  resources :answers do
+    member do
+      get :delete
+    end
+  end
+  
+  resources :questions do
+    member do
+      get :delete
+    end
+  end
+  
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
 

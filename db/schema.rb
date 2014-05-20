@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417131811) do
+ActiveRecord::Schema.define(version: 20140520101127) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      limit: 25
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20140417131811) do
   end
 
   add_index "admin_users", ["username"], name: "index_admin_users_on_username", using: :btree
+
+  create_table "answers", force: true do |t|
+    t.integer "questions_id"
+    t.string  "short"
+    t.text    "long"
+  end
+
+  add_index "answers", ["questions_id"], name: "index_answers_on_questions_id", using: :btree
 
   create_table "customers", force: true do |t|
     t.string   "name"
@@ -62,6 +70,19 @@ ActiveRecord::Schema.define(version: 20140417131811) do
   end
 
   add_index "products", ["framework_id"], name: "index_products_on_framework_id", using: :btree
+
+  create_table "questions", force: true do |t|
+    t.integer  "answers_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+    t.integer  "framework_id"
+  end
+
+  add_index "questions", ["answers_id"], name: "index_questions_on_answers_id", using: :btree
+  add_index "questions", ["framework_id"], name: "index_questions_on_framework_id", using: :btree
+  add_index "questions", ["product_id"], name: "index_questions_on_product_id", using: :btree
 
   create_table "schools", force: true do |t|
     t.string   "name"

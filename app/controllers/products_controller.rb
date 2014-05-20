@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @framework = Framework.all
+    @frameworks = Framework.all
   end
 
   def update
@@ -46,6 +46,7 @@ class ProductsController < ApplicationController
       redirect_to(:action => 'show', :id => @product.id)
     else
       # if save fails, redisplay the form so user can fix prolbmes 
+      @frameworks = Framework.all
       render('edit')
     end
   end

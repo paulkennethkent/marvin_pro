@@ -25,7 +25,7 @@
         <td><%= product.tier %></td>
         <td><%= product.isbn %></td>
         <td><%= product.support_url %></td>
-        <td><%= product.framework.id if product.framework %></td>
+        <td><%= product.framework.try(:name)%></td>
         <td><%=l product.created_at %></td>
         <td>
           <%= link_to("Show", product_path(product.id), :class => 'btn btn-mini') %>

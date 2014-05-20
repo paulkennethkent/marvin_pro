@@ -1,0 +1,17 @@
+<% @page_title = "Questions - New" %>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="question new">
+  <h2>Create Question</h2>
+
+  <%= form_for(:question, :url => {:action => 'create'}) do |f| %>
+    
+    <%= render(:partial => "form", :locals => {:f => f}) %> 
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+
+</div>

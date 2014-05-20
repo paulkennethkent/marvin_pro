@@ -1,0 +1,15 @@
+<% @page_title = "Questions - Edit" %>
+<%= link_to("Back to List", {:action => 'index'}, :class => 'back-link')%>
+
+<div class="questions update">
+  <h2>Update Product</h2>
+
+  <%= form_for(@question) do |f| %>
+    <%= render(:partial => "form", :locals => {:f => f}) %> 
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), :action => 'index', :class => 'btn btn-danger' %>
+  </div>
+<% end %>
+
+</div>
