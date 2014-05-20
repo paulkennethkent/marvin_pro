@@ -31,7 +31,7 @@
       <dt><strong><%= model_class.human_attribute_name("ISBN") %>:</strong></dt>
       <dd><%= @ticket.product.try(:isbn) %></dd>
       <dt><strong><%= model_class.human_attribute_name("Support Link") %>:</strong></dt>
-      <dd><%= @ticket.product.try(:support_url) %></dd>
+      <dd><%= link_to(@ticket.product.try(:support_url), @ticket.product.try(:support_url), :target => "_blank") %></dd>
       <dt><strong><%= model_class.human_attribute_name(:admin_user_id) %>:</strong></dt>
       <dd><%= @ticket.admin_user.username if @ticket.admin_user %></dd>
     </dl>
